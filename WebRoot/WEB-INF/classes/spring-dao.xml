@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+	
+	<bean id="basedao" class="com.hgd.leave.dao.impl.BaseDao">
+		<property name="sessionFactoryOverride" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="studao" class="com.hgd.leave.dao.impl.StudentInfoDao" parent="basedao" >
+	</bean>
+	<bean id="teacdao" class="com.hgd.leave.dao.impl.TeacherInfoDao" parent="basedao" >
+	</bean>
+	
+	
+	<bean id="stuservice" class="com.hgd.leave.service.impl.StudentInfoService" >
+		<property name="studao"><ref bean="studao" /></property>
+	</bean>
+	<bean id="teacservice" class="com.hgd.leave.service.impl.TeacherInfoService" >
+		<property name="teacdao"><ref bean="teacdao" /></property>
+	</bean>
+	
+</beans>

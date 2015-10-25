@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.action.extension" value="" />
+
+	<package name="manager_user" namespace="/" extends="myintercept">
+
+		<action name="regist" class="com.hgd.leave.actions.UserAction" method="regist">
+			<result name="error" type="json">
+				<param name="root">regResult</param>
+			</result>
+			<result name="success" type="json">
+				<param name="root">regResult</param>
+			</result>
+		</action>
+		
+		<action name="login" class="com.hgd.leave.actions.UserAction" method="login">
+			<result name="error" type="json">
+				<param name="root">loginResult</param>
+			</result>
+			<result name="success" type="json">
+				<param name="root">loginResult</param>
+			</result>
+		</action>
+		
+		<action name="loadhimg" class="com.hgd.leave.actions.UserAction" method="uploadHimg">
+			<result name="error" type="json">
+				<param name="root">loadimgResult</param>
+			</result>
+			<result name="success" type="json">
+				<param name="root">loadimgResult</param>
+			</result>
+			
+		</action>
+		<action name="gethimg" class="com.hgd.leave.actions.UserAction" method="getHimg">
+			<result name="error" type="json">
+				<param name="root">getimgResult</param>
+			</result>
+			<result name="success" type="stream">
+				<param name="contentType">image/*</param>  
+               <param name="inputName">imageStream</param>  
+               <param name="bufferSize">4096</param>  
+			</result>
+		
+		</action>
+	
+	
+	</package>
+	
+	
+
+</struts>

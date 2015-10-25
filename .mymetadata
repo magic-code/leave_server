@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="leave"
+  id="myeclipse.1445502232037"
+  context-root="/"
+  j2ee-spec="5.0"
+  archive="leave.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
