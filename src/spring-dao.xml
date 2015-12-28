@@ -16,6 +16,9 @@
 	</bean>
 	<bean id="teacdao" class="com.hgd.leave.dao.impl.TeacherInfoDao" parent="basedao" >
 	</bean>
+	<bean id="leavedao" class="com.hgd.leave.dao.impl.LeaveNoteDao" parent="basedao" >
+	</bean>
+	
 	
 	
 	<bean id="stuservice" class="com.hgd.leave.service.impl.StudentInfoService" >
@@ -23,6 +26,9 @@
 	</bean>
 	<bean id="teacservice" class="com.hgd.leave.service.impl.TeacherInfoService" >
 		<property name="teacdao"><ref bean="teacdao" /></property>
+	</bean>
+	<bean id="leaveservice" class="com.hgd.leave.service.impl.LeaveService" >
+		<property name="leavedao"><ref bean="leavedao" /></property>
 	</bean>
 	
 </beans>

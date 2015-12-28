@@ -104,13 +104,26 @@ public class TeacherInfoService implements ITeacherInfoService {
 				throw new UserNotExitException();
 			}
 			String upass = teacdao.selectPasswdByUname(uname);
-			if (!upass.equals(passwd)) {
+			if (upass==null || !upass.equals(passwd)) {
 				throw new UserPasswdErrorException();
 			}
 		} catch (Exception e) {
 			throw e;
 		}
 
+	}
+	@Override
+	public void updatePasswd(String uname, String oldPass, String passwd)
+			throws Exception, UserPasswdErrorException {
+		String op= teacdao.selectPasswdByUname(uname);
+		if(op==null || !op.equals(oldPass)){
+			throw new UserPasswdErrorException();
+		}
+		teacdao.updatePasswd(uname, passwd);
+	}
+	@Override
+	public TeacherInfo getTeacherInfo(int id) throws Exception {
+		return teacdao.select(id);
 	}
 
 }

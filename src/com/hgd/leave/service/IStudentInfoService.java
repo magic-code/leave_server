@@ -18,4 +18,6 @@ public interface IStudentInfoService {
 	public void changeHimg(String uname,String filename)throws Exception;
 	public File getHimg(String uname) throws Exception,NoHeadImgException,NoThisFileException;
 	public StudentInfo getStuInfo(String uname)throws Exception;
+	public StudentInfo getStuInfo(int id)throws Exception;
+	public void updatePasswd(String uname ,String oldPass,String passwd)throws Exception,UserPasswdErrorException;
 }

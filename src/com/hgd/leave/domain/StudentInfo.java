@@ -35,7 +35,15 @@ public class StudentInfo {
 	private int sex;
 	/**½ÇÉ«*/
 	private int actor;
+	/**°à¼¶*/
+	private String clazz;
 	
+	public String getClazz() {
+		return clazz;
+	}
+	public void setClazz(String clazz) {
+		this.clazz = clazz;
+	}
 	public int getActor() {
 		return actor;
 	}

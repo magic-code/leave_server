@@ -22,11 +22,19 @@ public class LoginInterceptor extends MethodFilterInterceptor {
 		String uri = req.getRequestURI();
 		System.out.println("uri"+uri);
 		String uname = (String) req.getSession().getAttribute("uname");
+		int actor = (Integer)req.getSession().getAttribute("actor");
 		if(uname==null){
 			ResultMes mes = new ResultMes();
 			mes.setCode(Constants.NO_LOGIN);
 			context.put("mes", mes);
 			return "nologin";
+		}
+		if(actor==Constants.ACTOR_STUDENT){
+			if(uri.contains("/manage/")){
+				ResultMes mes = new ResultMes();
+				mes.setCode(Constants.ACCESS_REFUSE);
+				return "noaccess";
+			}
 		}
 		return invocation.invoke();
 	}

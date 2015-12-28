@@ -34,6 +34,40 @@
 			</result>
 			
 		</action>
+		
+		<!--<action name="loadhimg" class="com.hgd.leave.actions.UploadHimgAction">
+			<result name="error" type="json">
+				<param name="root">loadimgResult</param>
+			</result>
+			<result name="success" type="json">
+				<param name="root">loadimgResult</param>
+			</result>
+			
+		</action>
+		
+		
+		
+		--><action name="getinfo" class="com.hgd.leave.actions.UserAction" method="getInfo">
+			<result name="error" type="json">
+				<param name="root">info</param>
+			</result>
+			<result name="success" type="json">
+				<param name="root">info</param>
+			</result>
+			
+		</action>
+		
+		
+		<action name="updatepass" class="com.hgd.leave.actions.UserAction" method="updatePasswd">
+			<result name="error" type="json">
+				<param name="root">updatePass</param>
+			</result>
+			<result name="success" type="json">
+				<param name="root">updatePass</param>
+			</result>
+			
+		</action>
+		
 		<action name="gethimg" class="com.hgd.leave.actions.UserAction" method="getHimg">
 			<result name="error" type="json">
 				<param name="root">getimgResult</param>
@@ -45,6 +79,8 @@
 			</result>
 		
 		</action>
+		
+		
 	
 	
 	</package>

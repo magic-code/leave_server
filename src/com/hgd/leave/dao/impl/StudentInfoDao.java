@@ -68,7 +68,10 @@ public class StudentInfoDao extends BaseDao<StudentInfo> implements
 	public void updateHimg(String uname, String filename) throws Exception {
 		try {
 			String hql = "update StudentInfo set headimg=? where uname=?";
-			this.getSession().update(hql, new String[] { filename, uname });
+			Query q = this.getSession().createQuery(hql);
+			q.setParameter(0, filename);
+			q.setParameter(1, uname);
+			q.executeUpdate();
 		} catch (Exception e) {
 			throw e;
 		}
@@ -84,6 +87,19 @@ public class StudentInfoDao extends BaseDao<StudentInfo> implements
 			String filename = (String) q.uniqueResult();
 			return filename;
 		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	@Override
+	public void updatePasswd(String uname, String passwd) throws Exception {
+		try{
+			String hql = "update SutdentInfo set passwd=? where uname=?";
+			Query q = this.getSession().createQuery(hql);
+			q.setParameter(0, passwd);
+			q.setParameter(1, uname);
+			q.executeUpdate();
+		}catch(Exception e){
 			throw e;
 		}
 	}

@@ -88,8 +88,24 @@ public class TeacherInfoDao extends BaseDao<TeacherInfo> implements ITeacherInfo
 	public void updateHimg(String uname, String filename) throws Exception {
 		try {
 			String hql = "update TeacherInfo set headimg=? where uname=?";
-			this.getSession().update(hql, new String[] { filename, uname });
+			Query q = this.getSession().createQuery(hql);
+			q.setParameter(0, filename);
+			q.setParameter(1, uname);
+			q.executeUpdate();
 		} catch (Exception e) {
+			throw e;
+		}
+	}
+
+	@Override
+	public void updatePasswd(String uname, String passwd) throws Exception {
+		try{
+			String hql = "update TeacherInfo set passwd=? where uname=?";
+			Query q = this.getSession().createQuery(hql);
+			q.setParameter(0, passwd);
+			q.setParameter(1, uname);
+			q.executeUpdate();
+		}catch(Exception e){
 			throw e;
 		}
 	}

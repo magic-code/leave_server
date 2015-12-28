@@ -1,6 +1,8 @@
 package com.hgd.leave.constants;
 
 public class Constants {
+	/**账号正常状态*/
+	public static final int ACCOUNT_NORMAL = 0;
 	/**账号被锁定*/
 	public static final int ACCOUNT_LOCKED = 1;
 	/**学生角色*/
@@ -10,6 +12,10 @@ public class Constants {
 	/**书记角色*/
 	public static final int ACTOR_SHUJI =3;
 	
+	/**同意*/
+	public static final int ALLOW = 1;
+	/**拒绝*/
+	public static final int REFUSE = 0;
 	/**成功*/
 	public static final int STATE_OK = 200;
 	
@@ -41,6 +47,11 @@ public class Constants {
 	public static final int NO_HEADIMG = 2010;
 	/**没有这个角色*/
 	public static final int NO_THIS_ACTOR = 2011;
-	
+	/**存在未完成的记录，不能新建*/
+	public static final int NOTE_NOFINISH_EXIST=2012;
+	/**记录已经变更，此次变更失败*/
+	public static final int NOTE_HAS_UPDATED=2013;
+	/**权限不足*/
+	public static final int ACCESS_REFUSE=2014;
 	
 }	

@@ -8,7 +8,6 @@
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.multipart.maxSize" value="100000000" />
 	
-	
 	<!-- session 拦截器，   必须extends="struts-default" -->
 	<package name="myintercept" extends="struts-default,json-default">
 		<interceptors>
@@ -16,7 +15,8 @@
 			
 			<interceptor-stack name="myStack">
 				<interceptor-ref name="logininterceptor">
-					<param name="excludeMethods">regist,getHimg,login</param>
+					<param name="excludeMethods">regist,getHimg,login,getInfo</param>
+					
 				</interceptor-ref>
 				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
@@ -24,6 +24,9 @@
 		<default-interceptor-ref name="myStack" />
 		<global-results>
 			<result name="nologin" type="json">
+				<param name="root">mes</param>
+			</result>
+			<result name="noaccess" type="json">
 				<param name="root">mes</param>
 			</result>
 		</global-results>

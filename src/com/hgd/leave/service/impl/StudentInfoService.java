@@ -56,7 +56,7 @@ public class StudentInfoService implements IStudentInfoService {
 				throw new UserNotExitException();
 			}
 			String upass = studao.selectPasswdByUname(uname);
-			if (!upass.equals(passwd)) {
+			if (upass==null || !upass.equals(passwd)) {
 				throw new UserPasswdErrorException();
 			}
 		} catch (Exception e) {
@@ -108,11 +108,21 @@ public class StudentInfoService implements IStudentInfoService {
 
 	@Override
 	public StudentInfo getStuInfo(String uname) throws Exception {
-		try{
-			return studao.queryByStuNum(uname);
-		}catch(Exception e){
-			throw e;
+		return studao.queryByStuNum(uname);
+	}
+
+	@Override
+	public void updatePasswd(String uname,String oldPass, String passwd) throws Exception,UserPasswdErrorException {
+		String op= studao.selectPasswdByUname(uname);
+		if(op==null || !op.equals(oldPass)){
+			throw new UserPasswdErrorException();
 		}
+		studao.updatePasswd(uname, passwd);
+	}
+
+	@Override
+	public StudentInfo getStuInfo(int id) throws Exception {
+		return studao.select(id);
 	}
 
 }

@@ -17,6 +17,17 @@
 			org.springframework.web.context.ContextLoaderListener
 		</listener-class>
 	</listener>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>UploadHimg</servlet-name>
+    <servlet-class>com.hgd.leave.actions.UploadHimg</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>UploadHimg</servlet-name>
+    <url-pattern>/uploadhimg</url-pattern>
+  </servlet-mapping>
 	
 	<filter>
 		<filter-name>hibernateFilter</filter-name>
@@ -58,6 +69,10 @@
         <filter-name>strutsencoing</filter-name>
         <filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
     </filter>
-	
+    
+	<filter-mapping>
+        <filter-name>strutsencoing</filter-name>
+        <url-pattern>*.html</url-pattern>
+    </filter-mapping>
   
 </web-app>

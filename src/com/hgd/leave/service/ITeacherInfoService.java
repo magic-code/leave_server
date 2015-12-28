@@ -17,4 +17,6 @@ public interface ITeacherInfoService {
 	public void changeHimg(String uname,String filename)throws Exception;
 	public File getHimg(String uname) throws Exception,NoHeadImgException,NoThisFileException;
 	public TeacherInfo getTeacherInfo(String uname)throws Exception;
+	public TeacherInfo getTeacherInfo(int id) throws Exception;
+	public void updatePasswd(String uname ,String oldPass,String passwd)throws Exception,UserPasswdErrorException;
 }

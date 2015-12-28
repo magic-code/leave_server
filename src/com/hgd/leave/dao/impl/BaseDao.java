@@ -35,7 +35,7 @@ public class BaseDao<T> extends HibernateDaoSupport implements IBaseDao<T>{
 	@Override
 	public void add(T t)throws Exception {
 		try{
-		getHibernateTemplate().save(t);
+			getHibernateTemplate().save(t);
 		}catch(Exception e){
 			throw e;
 		}

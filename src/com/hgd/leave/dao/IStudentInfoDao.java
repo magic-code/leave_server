@@ -9,4 +9,5 @@ public interface IStudentInfoDao extends IBaseDao<StudentInfo>{
 	public int getAccountState(String uname)throws Exception;
 	public void updateHimg(String uname,String filename)throws Exception;
 	public String getHimg(String uname)throws Exception;
+	public void updatePasswd(String uname,String passwd) throws Exception;
 }

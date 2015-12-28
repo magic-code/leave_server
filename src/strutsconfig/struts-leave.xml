@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.action.extension" value="" />
+
+	<package name="manager_common" namespace="/" extends="myintercept">
+		<!-- 添加请假记录 -->
+		<action name="addnote" class="com.hgd.leave.actions.LeaveAction" method="createNote">
+			<result name="error" type="json">
+				<param name="root">mes</param>
+			</result>
+			<result name="success" type="json">
+				<param name="root">mes</param>
+			</result>
+		</action>
+		<!-- 获取已经同意的请假记录 -->
+		<action name="allowednote" class="com.hgd.leave.actions.LeaveAction" method="getAllowedNote">
+			<result name="error" type="json">
+				<param name="root">allowedmes</param>
+			</result>
+			<result name="success" type="json">
+				<param name="root">allowedmes</param>
+			</result>
+		</action>
+	
+		<!-- 获取等待同意的请假记录 -->
+		<action name="waitnote" class="com.hgd.leave.actions.LeaveAction" method="getWaitAllowNote">
+			<result name="error" type="json">
+				<param name="root">waitmes</param>
+			</result>
+			<result name="success" type="json">
+				<param name="root">waitmes</param>
+			</result>
+		</action>
+		
+		<!-- 获取全部的请假记录 -->
+		<action name="allnote" class="com.hgd.leave.actions.LeaveAction" method="getWaitAllowNote">
+			<result name="error" type="json">
+				<param name="root">allmes</param>
+			</result>
+			<result name="success" type="json">
+				<param name="root">allmes</param>
+			</result>
+		</action>
+		
+		<!--<action name="gethimg" class="com.hgd.leave.actions.UserAction" method="getHimg">
+			<result name="error" type="json">
+				<param name="root">getimgResult</param>
+			</result>
+			<result name="success" type="stream">
+				<param name="contentType">image/*</param>  
+               <param name="inputName">imageStream</param>  
+               <param name="bufferSize">4096</param>  
+			</result>
+		
+		</action>
+	-->
+	</package>
+	
+	<!-- 审核请假记录 -->
+	<package name="manage_user" namespace="/manage" extends="myintercept">
+		<action name="verfiynote" class="com.hgd.leave.actions.LeaveAction" method="allowNote">
+			<result name="error" type="json">
+				<param name="root">allowmes</param>
+			</result>
+			<result name="success" type="json">
+				<param name="root">allowmes</param>
+			</result>
+		</action>
+	</package>
+
+</struts>
